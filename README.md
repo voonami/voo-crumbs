@@ -1,8 +1,11 @@
-# Voo::Crumbs
+# Voonami::Crumbs
 
-TODO: Write a gem description
+A rails extension to allow simple generation of breadcrumbs.
 
 ## Installation
+
+*For now we don't see this as generally useful, so the only way to install is
+from the git repo*.
 
 Add this line to your application's Gemfile:
 
@@ -18,7 +21,44 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply call `drop_crumb` to add a path and caption to your rails app. I use it like
+this:
+
+``` ruby
+# /app/controllers/application_controller.rb
+
+class ApplicationController < ActionController::Base
+  drop_crumb "Home", :root_path
+  # ...
+end
+```
+
+``` ruby
+# /app/controllers/accounts_controller.rb
+class AccountsController < ApplicationController
+  drop_crumb "Accounts", accounts_path
+
+  def index
+    # Code ...
+  end
+
+  def show
+    # Code ...
+    drop_crumb @account.name, account_path(@account)
+  end
+end
+```
+
+Then use it in `app/layouts/application.html.erb` with something like this (note
+that `breadcrumbs` is a helper method added by Voonami::Crumbs):
+
+``` erb
+<div class="breadcrumbs">
+  <% breadcrumbs.each do |caption, url| %>
+    <%= link_to caption, url %> -->
+  <% end %>
+</div>
+```
 
 ## Contributing
 
