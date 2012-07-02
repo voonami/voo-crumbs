@@ -33,7 +33,7 @@ module Voonami
             else
               resolved_url = nil
             end
-            drop_crumb caption, resolved_url
+            controller.drop_crumb caption, resolved_url
           end
         end
       end
