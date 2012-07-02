@@ -19,8 +19,13 @@ module Voonami
 
       def title_from_breadcrumbs(args={})
         head, *rest = breadcrumbs
-        root = args[:root] || head || "Home"
-        ([root] + rest).join(args.fetch(:seperator, " :: "))
+
+        root_caption = args[:root_caption] || head.first
+        root_url = head.last
+
+        ([[root_caption, root_url]] + rest)
+          .map{|i| i.first}
+          .join(args.fetch(:seperator, " :: "))
       end
 
       module ClassMethods
