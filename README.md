@@ -9,15 +9,21 @@ from the git repo*.
 
 Add this line to your application's Gemfile:
 
-    gem 'voo-crumbs'
+``` ruby
+gem 'voo-crumbs', git: "https://github.com/Thinkatomic/voo-crumbs", tag: "v1.0.0"
+```
 
 And then execute:
 
-    $ bundle
+``` console
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install voo-crumbs
+``` console
+$ gem install voo-crumbs
+```
 
 ## Usage
 
@@ -36,7 +42,7 @@ end
 ``` ruby
 # /app/controllers/accounts_controller.rb
 class AccountsController < ApplicationController
-  drop_crumb "Accounts", accounts_path
+  drop_crumb "Accounts", :accounts_path
 
   def index
     # Code ...
