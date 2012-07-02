@@ -10,7 +10,7 @@ from the git repo*.
 Add this line to your application's Gemfile:
 
 ``` ruby
-gem 'voo-crumbs', git: "https://github.com/Thinkatomic/voo-crumbs", tag: "v1.0.0"
+gem 'voo-crumbs', git: "git@github.com:Thinkatomic/voo-crumbs.git", tag: "v1.0.0"
 ```
 
 And then execute:
@@ -55,8 +55,8 @@ class AccountsController < ApplicationController
 end
 ```
 
-Then use it in `app/layouts/application.html.erb` with something like this (note
-that `breadcrumbs` is a helper method added by Voonami::Crumbs):
+Then use it in `/app/layouts/application.html.erb` with a snippet like this
+(note that `breadcrumbs` is a helper method added by Voonami::Crumbs):
 
 ``` erb
 <div class="breadcrumbs">
