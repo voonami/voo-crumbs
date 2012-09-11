@@ -19,12 +19,6 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-
-``` console
-$ gem install voo-crumbs
-```
-
 ## Usage
 
 Simply call `drop_crumb` to add a path and caption to your rails app. I use it like
