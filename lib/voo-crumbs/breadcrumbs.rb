@@ -10,15 +10,18 @@ module Voonami
         helper_method :title_from_breadcrumbs
       end
 
+      # Fetch the current breadcrumb list.
       def breadcrumbs
         @breadcrumbs ||= []
       end
 
-      # Add a crumb to the url
+      # Add a crumb to the trail.
       def drop_crumb(caption, url = nil)
         breadcrumbs << [caption.to_s, url].compact
       end
 
+      # Generate a string representation of the breadcrumbs. This
+      # is suitable for use in the page title.
       def title_from_breadcrumbs(args={})
         head, *rest = breadcrumbs
 
@@ -31,6 +34,7 @@ module Voonami
       end
 
       module ClassMethods
+        # Add a crumb to the trail.
         def drop_crumb(caption, url = nil)
           before_filter do |controller|
             if url.is_a? Symbol
